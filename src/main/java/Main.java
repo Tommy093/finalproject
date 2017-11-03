@@ -7,5 +7,6 @@ public class Main {
         System.out.println("Lukasz jest najlepszym programista");
         System.out.println("Wojtek tez jest dobrym programista");
         System.out.println("Darek");
+        System.out.println("Ola");
         }
 }

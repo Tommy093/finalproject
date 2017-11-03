@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('project-name App', () => {
+describe('project-name com.mechanicproject.view', () => {
   let page: AppPage;
 
   beforeEach(() => {

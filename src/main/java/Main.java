@@ -8,5 +8,6 @@ public class Main {
         System.out.println("Wojtek tez jest dobrym programista");
         System.out.println("Darek");
         System.out.println("Kupa");
+        System.out.println("deska");
         }
 }

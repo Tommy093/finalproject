@@ -1,9 +1,6 @@
 package com.mechanicproject.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -18,11 +15,14 @@ public class Car {
     @NotNull
     private String model;
     @NotNull
-    @Min(1900)
-    @Max(2017)
+    //@Min(1900)
+    //@Max(2017)
     private Integer yearOfProduction;
     @NotNull
     private String registrationNumber;
+
+    @ManyToOne
+    private Customer customer;
 
     public Car(String company, String model, Integer yearOfProduction, String registrationNumber) {
         this.company = company;

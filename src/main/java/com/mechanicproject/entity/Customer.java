@@ -1,12 +1,9 @@
 package com.mechanicproject.entity;
 
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+
 
 @Entity
 public class Customer {
@@ -15,7 +12,7 @@ public class Customer {
     private Integer id;
 
     @NotNull
-    @Size(min = 2)
+
     String name;
 
     @NotNull

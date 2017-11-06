@@ -26,7 +26,7 @@ public class Repair {
     private LocalDate dateofEnd;
 
     @NotNull
-    private float quotation;
+    private double quotation;
 
     public Repair(Integer customerId, Integer carId, LocalDate dateOfBegin, LocalDate dateofEnd, float quotation) {
         this.customerId = customerId;
@@ -76,8 +76,12 @@ public class Repair {
         this.dateofEnd = dateofEnd;
     }
 
-    public float getQuotation() {
+    public double getQuotation() {
         return quotation;
+    }
+
+    public void setQuotation(double quotation) {
+        this.quotation = quotation;
     }
 
     public void setQuotation(float quotation) {

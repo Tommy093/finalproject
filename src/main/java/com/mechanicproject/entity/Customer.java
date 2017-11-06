@@ -1,9 +1,13 @@
 package com.mechanicproject.entity;
 
+//import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
+import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -12,7 +16,7 @@ public class Customer {
     private Integer id;
 
     @NotNull
-
+   // @Size(min = 2)
     String name;
 
     @NotNull
@@ -20,6 +24,9 @@ public class Customer {
 
     @NotNull
     String phoneNumber;
+
+    @OneToMany
+    private List<Car> carList;
 
     public Customer(String name, String surname, String phoneNumber) {
         this.name = name;

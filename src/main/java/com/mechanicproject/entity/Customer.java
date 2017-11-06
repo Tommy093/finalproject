@@ -25,20 +25,26 @@ public class Customer {
     @NotNull
     String phoneNumber;
 
+    @NotNull
+    Integer customer_id;
+
     @OneToMany
     private List<Car> carList;
 
-    public Customer(String name, String surname, String phoneNumber) {
+
+
+    public Customer(String name, String surname, String phoneNumber, Integer customer_id) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
+        this.customer_id = customer_id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,5 +70,21 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(Integer customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
+
+    public void setCarList(List<Car> carList) {
+        this.carList = carList;
     }
 }

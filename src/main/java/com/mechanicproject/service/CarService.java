@@ -9,12 +9,12 @@ import java.util.List;
 
 @Service
 public class CarService {
+    private CarRepository carRepository;
+
     @Autowired
     public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
-
-    private CarRepository carRepository;
 
     public void saveCarsList(List<Car> carList){
         carRepository.save(carList);

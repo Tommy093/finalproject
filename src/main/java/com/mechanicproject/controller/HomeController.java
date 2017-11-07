@@ -1,5 +1,4 @@
 package com.mechanicproject.controller;
-
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -20,4 +19,7 @@ public class HomeController {
         model.put("zmienna", variable);
         return "home";
     }
+
+
+
 }

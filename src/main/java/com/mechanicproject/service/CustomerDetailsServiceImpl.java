@@ -9,11 +9,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 /**
  * Created by RENT on 2017-11-07.
  */
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class CustomerDetailsServiceImpl implements UserDetailsService {
     private CustomerRepository customerRepository;
 
     @Autowired
-    public UserDetailsServiceImpl(CustomerRepository customerRepository) {
+    public CustomerDetailsServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
 

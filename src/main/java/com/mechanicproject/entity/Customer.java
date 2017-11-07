@@ -28,7 +28,7 @@ public class Customer {
     @NotNull
     Integer customer_id;
 
-    @OneToMany
+    @OneToMany (mappedBy="customer")
     private List<Car> carList;
 
 

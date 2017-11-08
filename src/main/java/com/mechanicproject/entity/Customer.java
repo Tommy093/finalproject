@@ -35,7 +35,7 @@ public class Customer implements UserDetails{
     @NotNull
     private String phoneNumber;
 
-    @OneToMany
+    @OneToMany (mappedBy="customer")
     private List<Car> carList;
 
     @ManyToMany (fetch = FetchType.EAGER)

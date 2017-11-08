@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    // inject via application.properties
     @Value("${welcome.message:test}")
     private String message = "Hello World";
 
@@ -19,7 +18,4 @@ public class HomeController {
         model.put("zmienna", variable);
         return "home";
     }
-
-
-
 }

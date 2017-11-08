@@ -15,16 +15,14 @@ public class Car {
     @NotNull
     private String model;
     @NotNull
-    //@Min(1900)
-    //@Max(2017)
     private Integer yearOfProduction;
     @NotNull
     private String registrationNumber;
-
     @ManyToOne
     private Customer customer;
 
-    public Car(String company, String model, Integer yearOfProduction, String registrationNumber) {
+    public Car(String company, String model, Integer yearOfProduction, String registrationNumber
+               ) {
         this.company = company;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
@@ -33,6 +31,15 @@ public class Car {
 
     public Integer getId() {
         return id;
+    }
+
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public void setId(Integer id) {

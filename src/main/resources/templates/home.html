@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>E-mechanik - strona główna</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+    <div class="jumbotron">
+        <h1 class="display-3">E-mechanik</h1>
+        <p class="lead">W prosty sposób umow wizytę u mechanika.</p>
+        <hr class="my-4">
+        <p>Ułatw sobie życie i już teraz sprawdź dostępne terminy.</p>
+        <p class="lead">
+            <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+        </p>
+    </div>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--<div class="col-sm">-->
+        <!--</div>-->
+        <div class="col-sm">
+            <div class="text-center" style="padding:50px 0">
+                <div class="logo">login</div>
+                <!-- Main Form -->
+                <div class="login-form-1">
+                    <form id="login-form" class="text-left">
+                        <div class="login-form-main-message"></div>
+                        <div class="main-login-form">
+                            <div class="login-group">
+                                <div class="form-group">
+                                    <label for="lg_username" class="sr-only">Użytkownik</label>
+                                    <input type="text" class="form-control" id="lg_username" name="lg_username"
+                                           placeholder="wpisz nazwę użytkownika">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lg_password" class="sr-only">Hasło</label>
+                                    <input type="password" class="form-control" id="lg_password" name="lg_password"
+                                           placeholder="Wpisz swoje hasło">
+                                </div>
+                            </div>
+                            <button type="submit" class="login-button">Zaloguj</button>
+                        </div>
+                        <div class="etc-login-form">
+                            <p>Jesteś tu nowy? <a href="#">Utwórz konto</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--<div class="col-sm">-->
+            <!--</div>-->
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <link href="styles.css" rel="stylesheet">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">
+                    Kalendarz dostępności
+                </h2>
+            </div>
+            <div id="no-more-tables">
+                <table class="col-sm-12 table-bordered table-striped table-condensed cf">
+                    <thead class="cf">
+                    <tr>
+                        <th></th>
+                        <th>Poniedziałek</th>
+                        <th>Wtorek</th>
+                        <th>Środa</th>
+                        <th>Czwartek</th>
+                        <th>Piątek</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td data-title="      ">07:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    <tr>
+                        <td data-title="      ">09:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    <tr>
+                        <td data-title="      ">11:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    <tr>
+                        <td data-title="      ">13:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    <tr>
+                        <td data-title="      ">15:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    <tr>
+                        <td data-title="      ">17:00</td>
+                        <td data-title="Monday">Zostaw pojazd</td>
+                        <td data-title="Tuesday">Zostaw pojazd</td>
+                        <td data-title="Wednesday">Zostaw pojazd</td>
+                        <td data-title="Thursday">Zostaw pojazd</td>
+                        <td data-title="Friday">Zostaw pojazd</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p th:text="${zmienna}">Test</p>
+    <div class="container">
+        <div class="starter-template">
+            <h1>To kiedyś będzie strona główna xD</h1>
+            <h2>
+                <span th:text="'Wiadomość: ' + ${message}"></span>
+            </h2>
+        </div>
+    </div>
+    <!-- /.container -->
+    <script type="text/javascript"
+            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -28,7 +28,7 @@ public class CustomerController {
     public void initializeDatabase(){
         List<Customer> customers = new ArrayList<>();
         List<Car> cars = new ArrayList<Car>();
-        Car car1 = new Car("audi", "a3", 2000, "SL86878");
+        Car car1 = new Car("audi", "A1", 2000, "SL86878");
         cars.add(car1);
         Car car2 = new Car("vw", "passat", 2001, "SO80808");
         cars.add(car2);
@@ -53,29 +53,29 @@ public class CustomerController {
         Car car12 = new Car("fiat", "multipla", 1999, "WAW201D2");
         cars.add(car12);
 
-        Customer Customer1 = new Customer("Antek", "Hassan","666777666", 1);
+        Customer Customer1 = new Customer("Antek", "Hassan","666777666");
         customers.add(Customer1);
-        Customer Customer2 = new Customer("Tomasz", "Wafel", "555444333", 2);
+        Customer Customer2 = new Customer("Tomasz", "Wafel", "555444333");
         customers.add(Customer2);
-        Customer Customer3 = new Customer("Jaroslaw", "Bugaj", "543765876", 3);
+        Customer Customer3 = new Customer("Jaroslaw", "Bugaj", "543765876");
         customers.add(Customer3);
-        Customer Customer4 = new Customer("Roman", "Uniejowski", "765456888", 4);
+        Customer Customer4 = new Customer("Roman", "Uniejowski", "765456888");
         customers.add(Customer4);
-        Customer Customer5 = new Customer("Bartlomiej", "Oracz", "Pluta", 5);
+        Customer Customer5 = new Customer("Bartlomiej", "Oracz", "Pluta");
         customers.add(Customer5);
-        Customer Customer6 = new Customer("Bogdan", "Frel", "707676444", 6);
+        Customer Customer6 = new Customer("Bogdan", "Frel", "707676444");
         customers.add(Customer6);
-        Customer Customer7 = new Customer("Anna", "Rutkiewicz", "554665778", 7);
+        Customer Customer7 = new Customer("Anna", "Rutkiewicz", "554665778");
         customers.add(Customer7);
-        Customer Customer8 = new Customer("Aleksandra", "Smolik", "798090002", 8);
+        Customer Customer8 = new Customer("Aleksandra", "Smolik", "798090002");
         customers.add(Customer8);
-        Customer Customer9 = new Customer("Andrzej", "Golota", "555777999", 9);
+        Customer Customer9 = new Customer("Andrzej", "Golota", "555777999");
         customers.add(Customer9);
-        Customer Customer10 = new Customer("Milena", "Ociepka", "666879948", 10);
+        Customer Customer10 = new Customer("Milena", "Ociepka", "666879948");
         customers.add(Customer10);
-        Customer Customer11 = new Customer("Eugeniusz", "Materna", "543622211", 11);
+        Customer Customer11 = new Customer("Eugeniusz", "Materna", "543622211");
         customers.add(Customer11);
-        Customer Customer12 = new Customer("Roman", "Paska", "779800987", 12);
+        Customer Customer12 = new Customer("Roman", "Paska", "779800987");
         customers.add(Customer12);
 
 

@@ -44,13 +44,21 @@
             </div>
 
             <div class="col-12 col-md-6 ml-auto pt-5 pt-md-0">
-                <form method="post">
+                <form th:action="@{/repair}" method="post">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Marka samochodu" id="company">
+                            <input type="text" class="form-control" placeholder="Marka samochodu" id="company" name="company">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Model samochodu" id="model">
+                            <input type="text" class="form-control" placeholder="Model samochodu" id="model" name="model">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Rok produkcji" id="yearOfProduction" name="yearOfProduction">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Numer rejestracyjny" id="registrationNumber" name="registrationNumber">
                         </div>
                     </div>
                     <div class="row mt-4">

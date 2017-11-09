@@ -21,12 +21,25 @@ public class Car {
     @ManyToOne
     private Customer customer;
 
-    public Car(String company, String model, Integer yearOfProduction, String registrationNumber
-               ) {
+    public Car(){
+
+    }
+
+    public Car(String company, String model, Integer yearOfProduction, String registrationNumber,
+               Customer customer) {
         this.company = company;
         this.model = model;
         this.yearOfProduction = yearOfProduction;
         this.registrationNumber = registrationNumber;
+        this.customer = customer;
+    }
+
+    public Car(String company, String model, Integer yearOfProduction, String registrationNumber) {
+        this.company = company;
+        this.model = model;
+        this.yearOfProduction = yearOfProduction;
+        this.registrationNumber = registrationNumber;
+        this.customer = null;
     }
 
     public Integer getId() {

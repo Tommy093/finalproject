@@ -2,13 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-    <form th:action="@{/addedrepair}" method="get">
     <div class="container">
         <div class="jumbotron">
             <h1>Dodano samochód.</h1>
-            <button type="submit">Powrót</button>
+            <a href = "/addrepair">Powrót</a>
         </div>
     </div>
-    </form>
+
+
+    <table>
+        <th:block th:each="car : ${carList}">
+            <tr>
+                <td th:text="${car.getCompany()}">...</td>
+            </tr>
+        </th:block>
+    </table>
 </head>
 </html>

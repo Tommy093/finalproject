@@ -1,6 +1,7 @@
 package com.mechanicproject.service;
 
 import com.mechanicproject.entity.Car;
+import com.mechanicproject.entity.Customer;
 import com.mechanicproject.repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,7 @@ public class CarService {
         carRepository.save(car);
     }
 
+    public List<Car> getCarsByCustomer(Customer customer){
+        return carRepository.getCarsByCustomer(customer);
+    }
 }

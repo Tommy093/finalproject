@@ -2,6 +2,7 @@ package com.mechanicproject.controller;
 
 
 import com.mechanicproject.entity.Car;
+import com.mechanicproject.entity.Customer;
 import com.mechanicproject.service.CarService;
 import com.mechanicproject.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -39,26 +42,29 @@ public class RepairController {
 
 
     @RequestMapping(value = "/repair", method = RequestMethod.POST)
-    public RedirectView add(@RequestParam(name = "company") String company, @RequestParam(name = "model")
+    public ModelAndView add(@RequestParam(name = "company") String company, @RequestParam(name = "model")
             String carModel,
                             @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam(name = "registrationNumber")
                                     String registrationNumber) {
 
-        Car car = new Car(company, carModel, yearOfProduction, registrationNumber);
+        Customer customer = customerService.getById(1);
+        Car car = new Car(company, carModel, yearOfProduction, registrationNumber, customer);
         carService.saveCar(car);
-        return new RedirectView("/addrepair");
+        ModelAndView modelAndView = new ModelAndView("addedrepair");
+        List<Car> carList = carService.getCarsByCustomer(customer);
+        modelAndView.addObject("carList", carList);
+
+        return modelAndView;
     }
 
-    @RequestMapping(value = "/addedRepair", method = RequestMethod.GET)
-    public RedirectView addedRepair(@RequestParam(name = "company") String company, @RequestParam(name = "model")
-            String carModel,
-                                    @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam
-                                            (name = "registrationNumber")
-                                            String registrationNumber) {
-
-        Car car = new Car(company, carModel, yearOfProduction, registrationNumber);
-        customerService.getAllCars(1);
-        return new RedirectView("/addedrepair");
-    }
+//    @RequestMapping(value = "/addedRepair", method = RequestMethod.GET)
+//    public RedirectView addedRepair(@RequestParam(name = "company") String company, @RequestParam(name = "model")
+//            String carModel,
+//                                    @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam
+//                                            (name = "registrationNumber")
+//                                            String registrationNumber) {
+//
+//        return new RedirectView("/addedrepair");
+//    }
 }
 

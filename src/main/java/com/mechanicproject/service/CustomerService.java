@@ -25,6 +25,11 @@ public class CustomerService {
     public List<Car> getAllCars (Integer customerId){
         return customerRepository.getById(customerId).getCarList();
     }
+
+    public Customer getById(Integer customerId){
+        return customerRepository.getById(customerId);
+    }
+
 }
 
 

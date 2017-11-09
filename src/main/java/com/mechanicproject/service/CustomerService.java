@@ -21,6 +21,10 @@ public class CustomerService {
     public void saveCustomerList(List<Customer> customerList){
         customerRepository.save(customerList);
     }
+
+    public List<Car> getAllCars (Integer customerId){
+        return customerRepository.getById(customerId).getCarList();
+    }
 }
 
 

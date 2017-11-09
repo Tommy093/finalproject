@@ -18,10 +18,12 @@ import java.util.Map;
 public class RepairController {
 
     private CarService carService;
+    private CustomerService customerService;
 
     @Autowired
-    public RepairController(CarService carService) {
+    public RepairController(CarService carService, CustomerService customerService) {
         this.carService = carService;
+        this.customerService = customerService;
     }
 
     @Value("${welcome.message:test}")
@@ -38,12 +40,25 @@ public class RepairController {
 
     @RequestMapping(value = "/repair", method = RequestMethod.POST)
     public RedirectView add(@RequestParam(name = "company") String company, @RequestParam(name = "model")
-                                    String carModel,
+            String carModel,
                             @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam(name = "registrationNumber")
                                     String registrationNumber) {
 
-        Car car = new Car(company, carModel,yearOfProduction,registrationNumber );
+        Car car = new Car(company, carModel, yearOfProduction, registrationNumber);
         carService.saveCar(car);
         return new RedirectView("/addrepair");
     }
+
+    @RequestMapping(value = "/addedRepair", method = RequestMethod.GET)
+    public RedirectView addedRepair(@RequestParam(name = "company") String company, @RequestParam(name = "model")
+            String carModel,
+                                    @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam
+                                            (name = "registrationNumber")
+                                            String registrationNumber) {
+
+        Car car = new Car(company, carModel, yearOfProduction, registrationNumber);
+        customerService.getAllCars(1);
+        return new RedirectView("/addedrepair");
+    }
 }
+

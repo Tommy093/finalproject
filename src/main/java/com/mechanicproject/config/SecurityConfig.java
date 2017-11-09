@@ -31,6 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/mechanic").permitAll()
                 .antMatchers("/addrepair").permitAll()
                 .antMatchers("/repair").permitAll()
+                .antMatchers("/addedrepair").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()

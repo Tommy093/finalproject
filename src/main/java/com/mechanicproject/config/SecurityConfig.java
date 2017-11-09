@@ -9,6 +9,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * Created by RENT on 2017-11-07.
@@ -18,9 +21,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private CustomerRepository customerRepository;
+    private UserDetailsService userDetailService;
+    private AuthenticationEntryPoint authenticationEntryPoint;
+    private AccessDeniedHandler accessDeniedHandler;
 
-    public SecurityConfig(CustomerRepository customerRepository) {
+    @Autowired
+    public SecurityConfig(CustomerRepository customerRepository, UserDetailsService userDetailService,
+                          AuthenticationEntryPoint authenticationEntryPoint, AccessDeniedHandler accessDeniedHandler) {
         this.customerRepository = customerRepository;
+        this.userDetailService = userDetailService;
+        this.authenticationEntryPoint = authenticationEntryPoint;
+        this.accessDeniedHandler = accessDeniedHandler;
     }
 
     @Override
@@ -28,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/home").permitAll()
+                .antMatchers("/login").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
@@ -38,17 +50,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .logout()
-                .permitAll();
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedHandler(accessDeniedHandler)
+                .authenticationEntryPoint(authenticationEntryPoint);
     }
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user").password("password").roles("USER")
+                .withUser("user@user.pl").password("password").roles("USER")
                 .and()
                 .withUser("admin").password("password").roles("ADMIN");
 
-        auth.userDetailsService(userDetailsService());
+        auth.userDetailsService(userDetailService);
     }
 }
 

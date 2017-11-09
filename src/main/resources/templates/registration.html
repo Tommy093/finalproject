@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>E-mechanik - strona główna</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css"
+          href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"
+          href="../../css/main.css"/>
+    <div class="col col-md-12">
+        <div class="jumbotron">
+            <h1 class="display-3">E-mechanik</h1>
+            <p class="lead">W prosty sposób umow wizytę u mechanika.</p>
+            <hr class="my-4">
+            <p>Ułatw sobie życie i już teraz sprawdź dostępne terminy.</p>
+            <p class="lead">
+                <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
+            </p>
+        </div>
+    </div>
+</head>
+<body>
+<form th:action="@{/registered}" method="post" class="container" id="needs-validation" novalidate>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="name">Imię</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Wpisz swoję imię"required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="surname">Nazwisko</label>
+            <input type="text" class="form-control" id="surname" name="surname" placeholder="Wpisz swoje nazwisko" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="username">Nazwa użytkownika</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Wpisz nazwę użytkownika"required>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="password">Hasło</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Wpisz hasło" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="phoneNumber">Numer telefonu</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Wpisz swój numer telefonu" required>
+        </div>
+        </div>
+        </div>
+    <button type="submit" class="btn btn-success btn-block">Zarejestruj się</button>
+</form>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+            var form = document.getElementById('needs-validation');
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        }, false);
+    })();
+</script>
+</body>
+</html>

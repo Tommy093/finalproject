@@ -40,6 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/home").permitAll()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/mechanic").permitAll()
+                .antMatchers("/addrepair").permitAll()
+                .antMatchers("/repair").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER")
                 .anyRequest().authenticated()
@@ -59,11 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user@user.pl").password("password").roles("USER")
+                .withUser("user").password("password").roles("USER")
                 .and()
                 .withUser("admin").password("password").roles("ADMIN");
 
-        auth.userDetailsService(userDetailService);
+        auth.userDetailsService(userDetailsService());
     }
 }
 

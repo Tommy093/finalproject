@@ -80,6 +80,10 @@ public class Repair {
         return quotation;
     }
 
+    public void setQuotation(double quotation) {
+        this.quotation = quotation;
+    }
+
     public void setQuotation(float quotation) {
         this.quotation = quotation;
     }

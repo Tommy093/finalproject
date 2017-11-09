@@ -19,4 +19,8 @@ public class CarService {
     public void saveCarsList(List<Car> carList){
         carRepository.save(carList);
     }
+
+    public void saveCar(Car car){
+        carRepository.save(car);
+    }
 }

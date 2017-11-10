@@ -32,7 +32,9 @@ public class RegistrationService {
             customer.setUsername(username);
             customer.setName(name);
             customer.setSurname(surname);
-            customer.getRoleSet().add(new Role());
+            Role role = new Role();
+            role.setName("USER");
+            customer.getRoleSet().add(role);
             customerRepository.save(customer);
             return true;
         }

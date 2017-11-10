@@ -1,6 +1,7 @@
 package com.mechanicproject.controller;
 
 import com.mechanicproject.entity.Customer;
+import com.mechanicproject.entity.Role;
 import com.mechanicproject.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by RENT on 2017-11-09.
@@ -43,6 +46,12 @@ public class RegistrationController {
                                     @RequestParam(name = "password") String password,
                                     @RequestParam(name = "phoneNumber") String phoneNumber) {
         Customer customer = new Customer(name, surname, username, password, phoneNumber);
+        Set<Role> roleSet = new HashSet<Role>();
+        Role role = new Role();
+        role.setId(1);
+        role.setName("USER");
+        roleSet.add(role);
+        customer.setRoleSet(roleSet);
         registrationService.saveCustomer(customer);
         return new RedirectView("/registration");
 

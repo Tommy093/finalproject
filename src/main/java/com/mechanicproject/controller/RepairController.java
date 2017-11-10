@@ -56,15 +56,5 @@ public class RepairController {
 
         return modelAndView;
     }
-
-//    @RequestMapping(value = "/addedRepair", method = RequestMethod.GET)
-//    public RedirectView addedRepair(@RequestParam(name = "company") String company, @RequestParam(name = "model")
-//            String carModel,
-//                                    @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam
-//                                            (name = "registrationNumber")
-//                                            String registrationNumber) {
-//
-//        return new RedirectView("/addedrepair");
-//    }
 }
 

@@ -51,6 +51,10 @@ public class Customer implements UserDetails{
 
     }
 
+    public Customer(Integer id){
+        this.id = id;
+    }
+
     public Customer(String username, String password, String name, String surname, String phoneNumber) {
         this.username = username;
         this.password = password;

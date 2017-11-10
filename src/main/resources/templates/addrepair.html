@@ -55,21 +55,22 @@
                 <form th:action="@{/repair}" method="post">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Marka samochodu" id="company"
+                            <input required type="text" class="form-control" placeholder="Marka samochodu" id="company"
                                    name="company">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Model samochodu" id="model"
+                            <input required type="text" class="form-control" placeholder="Model samochodu" id="model"
                                    name="model">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Rok produkcji" id="yearOfProduction"
+                            <input required type="number" max="2017" min="1900" class="form-control"
+                                   placeholder="Rok produkcji" id="yearOfProduction"
                                    name="yearOfProduction">
                         </div>
                         <div class="col">
-                            <input type="text" class="form-control" placeholder="Numer rejestracyjny"
+                            <input required type="text" class="form-control" placeholder="Numer rejestracyjny"
                                    id="registrationNumber" name="registrationNumber">
                         </div>
                     </div>

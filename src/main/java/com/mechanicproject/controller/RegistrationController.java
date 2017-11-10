@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.Map;
@@ -36,18 +37,19 @@ public class RegistrationController {
         return "registration";
     }
 
+
     @RequestMapping(value = "/registered", method = RequestMethod.POST)
-    public RedirectView addCustomer(@RequestParam(name = "name") String name,
+    public ModelAndView addCustomer(@RequestParam(name = "name") String name,
                                     @RequestParam(name = "surname") String surname,
                                     @RequestParam(name = "username") String username,
                                     @RequestParam(name = "password") String password,
                                     @RequestParam(name = "phoneNumber") String phoneNumber) {
         Customer customer = new Customer(name, surname, username, password, phoneNumber);
         registrationService.saveCustomer(customer);
-        return new RedirectView("/registration");
+        ModelAndView modelAndView1 = new ModelAndView("registrated");
 
+        return modelAndView1;
     }
-
 }
 
 

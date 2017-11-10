@@ -3,7 +3,9 @@ package com.mechanicproject.entity;
 //import org.springframework.security.core.GrantedAuthority;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
@@ -13,6 +15,7 @@ import javax.validation.constraints.Size;
 import java.util.Collection;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public class Customer implements UserDetails{
@@ -93,7 +96,7 @@ public class Customer implements UserDetails{
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return getRoleSet();
+        return roleSet.stream().map(p-> new SimpleGrantedAuthority(p.getName())).collect(Collectors.toList());
     }
 
     public String getPassword() {

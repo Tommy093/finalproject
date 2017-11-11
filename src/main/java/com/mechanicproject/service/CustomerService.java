@@ -30,6 +30,10 @@ public class CustomerService {
         return customerRepository.getById(customerId);
     }
 
+    public Customer getByUsername(String userName){
+        return customerRepository.findByUsername(userName);
+    }
+
 }
 
 

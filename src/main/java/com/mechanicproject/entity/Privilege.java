@@ -1,27 +1,32 @@
 package com.mechanicproject.entity;
 
+import com.mechanicproject.security.Role;
 import org.springframework.security.core.GrantedAuthority;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by RENT on 2017-11-07.
  */
 @Entity
-public class Role implements GrantedAuthority {
+public class Privilege implements GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    @Enumerated(EnumType.ORDINAL)
+    private Role role;
 
+    public Privilege() {
+    }
+
+    public Privilege(Role role) {
+        this.role = role;
+    }
 
     @Override
     public String getAuthority() {
-        return name;
+        return role.name();
     }
 
     public long getId() {
@@ -32,11 +37,5 @@ public class Role implements GrantedAuthority {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

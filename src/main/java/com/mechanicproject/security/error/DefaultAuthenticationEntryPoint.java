@@ -1,4 +1,4 @@
-package com.mechanicproject.error;
+package com.mechanicproject.security.error;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

@@ -1,4 +1,4 @@
-package com.mechanicproject.service;
+package com.mechanicproject.security;
 
 import com.mechanicproject.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

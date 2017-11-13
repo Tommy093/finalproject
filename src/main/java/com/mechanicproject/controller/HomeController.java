@@ -2,30 +2,27 @@ package com.mechanicproject.controller;
 import java.util.Collection;
 import java.util.Map;
 
-import org.apache.catalina.Authenticator;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.view.RedirectView;
+
 
 @Controller
 public class HomeController {
 
-    private AuthenticationProvider authenticationProvider;
+    private Authentication authenticationProvider;
 
     @Autowired
-    public HomeController(AuthenticationProvider authenticationProvider) {
+    public HomeController(Authentication authenticationProvider) {
         this.authenticationProvider = authenticationProvider;
     }
 

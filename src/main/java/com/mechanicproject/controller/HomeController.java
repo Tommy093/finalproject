@@ -48,15 +48,8 @@ public class HomeController {
         return "login";
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String welcome2(@RequestParam(name = "username") String username,
-                          @RequestParam(name = "password") String password,
-                          HttpServletRequest request) {
-        doAutoLogin(username, password, request);
-        return "login";
-    }
 
-    @Secured(value={"ADMIN"})
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping("/admin/login")
     public String admin() {
         return "login";

@@ -1,5 +1,6 @@
 package com.mechanicproject.controller;
 
+import com.mechanicproject.entity.Customer;
 import com.mechanicproject.security.Role;
 import com.mechanicproject.service.CustomerService;
 import org.apache.log4j.Logger;
@@ -37,13 +38,11 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         
 
 		System.out.print("Succesful authentication!");
-		customerService.getById(1);
+		Customer customer = customerService.getById(1);
 		Set<Role> roleSet = new HashSet<Role>();
-		Role role = Role.ROLE_USER;
-		roleSet.add(role);
 		List<SimpleGrantedAuthority> roles = roleSet.stream().map(p -> new SimpleGrantedAuthority(p.name())).collect(Collectors.toList());
 
-		return new UsernamePasswordAuthenticationToken(name, password, roles);
+		return new UsernamePasswordAuthenticationToken(name, password, customer.getRoleSet());
 
 	}
  

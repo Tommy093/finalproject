@@ -1,11 +1,11 @@
 package com.mechanicproject.controller;
-import java.util.Collection;
-import java.util.Map;
 
+import java.util.Map;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HomeController {
 
-    private Authentication authenticationProvider;
+    private AuthenticationProvider authenticationProvider;
 
     @Autowired
-    public HomeController(Authentication authenticationProvider) {
+    public HomeController(AuthenticationProvider authenticationProvider) {
         this.authenticationProvider = authenticationProvider;
     }
 
@@ -53,7 +53,7 @@ public class HomeController {
         return "login";
     }
 
-    @Secured(value={"ADMIN"})
+    @Secured(value={"ROLE_ADMIN"})
     @RequestMapping("/admin/login")
     public String admin() {
         return "login";

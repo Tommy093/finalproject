@@ -36,8 +36,10 @@ public class RegistrationService {
             customer.setName(name);
             customer.setSurname(surname);
             customer.setPhoneNumber(phoneNumber);
-            Privilege role = new Privilege(Role.ROLE_USER);
+            Privilege role = new Privilege(Role.ROLE_ADMIN);
+            Privilege role2 = new Privilege(Role.ROLE_USER);
             customer.getRoleSet().add(role);
+            customer.getRoleSet().add(role2);
             customerRepository.save(customer);
             return true;
         }

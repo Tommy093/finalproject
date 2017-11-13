@@ -44,7 +44,8 @@ public class RepairController {
     @RequestMapping(value = "/repair", method = RequestMethod.POST)
     public ModelAndView add(@RequestParam(name = "company") String company, @RequestParam(name = "model")
             String carModel,
-                            @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam(name = "registrationNumber")
+                            @RequestParam(name = "yearOfProduction") int yearOfProduction, @RequestParam
+                                    (name = "registrationNumber")
                                     String registrationNumber) {
 
         Customer customer = customerService.getById(1);

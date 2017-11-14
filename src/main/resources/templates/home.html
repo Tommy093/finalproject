@@ -22,15 +22,10 @@
 
 
 
-
-
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
             <div sec:authorize="isAnonymous()">
-                This content is only shown to non authenticaded users.
-
-
                 <div class="container">
                     <div class="row">
                         <div class="col col-md-12">
@@ -70,6 +65,8 @@
                     </div>
                 </div>
             </div>
+
+            This content is only shown to non authenticaded users.
 
 
             <div sec:authorize="isAuthenticated()">

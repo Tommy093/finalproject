@@ -1,6 +1,8 @@
 package com.mechanicproject.controller;
 
 import com.mechanicproject.entity.Customer;
+import com.mechanicproject.exceptions.NotFoundCustomer;
+import com.mechanicproject.exceptions.WrongPasswordException;
 import com.mechanicproject.security.Role;
 import com.mechanicproject.service.CustomerService;
 import org.apache.log4j.Logger;
@@ -30,15 +32,17 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 	}
 
 	@Override
-	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+	public Authentication authenticate(Authentication authentication) throws WrongPasswordException, NotFoundCustomer {
 		String name = authentication.getName();
         String password = authentication.getCredentials().toString();
-        
-        System.out.print("Name = " + name + " ,Password = " + password);
-        
 
-		System.out.print("Succesful authentication!");
 		Customer customer = customerService.getByUsername(name);
+		if(customer == null){
+			throw new NotFoundCustomer("bledny customer");
+		}
+		if (!customer.getPassword().equals(password)) {
+			throw new WrongPasswordException("bledne haslo");
+		}
 
 		Set<Role> roleSet = new HashSet<Role>();
 		List<SimpleGrantedAuthority> roles = roleSet.stream().map(p -> new SimpleGrantedAuthority(p.name())).collect(Collectors.toList());

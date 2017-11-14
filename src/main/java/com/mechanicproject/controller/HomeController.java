@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.mechanicproject.entity.Privilege;
+import com.mechanicproject.exceptions.NotFoundCustomer;
+import com.mechanicproject.exceptions.WrongPasswordException;
 import com.mechanicproject.security.Role;
 import org.apache.catalina.Authenticator;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -53,44 +55,33 @@ public class HomeController {
         return modelAndView;
     }
 
-    @RequestMapping("/login")
-    public String welcome(@RequestParam(name = "username") String username,
-                          @RequestParam(name = "password") String password,
-                          HttpServletRequest request) {
-        doAutoLogin(username, password, request);
-        return "home";
-    }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String welcome2(@RequestParam(name = "username") String username,
+    public RedirectView welcome2(@RequestParam(name = "username") String username,
                            @RequestParam(name = "password") String password,
                            HttpServletRequest request) {
-        doAutoLogin(username, password, request);
-        return "home";
-    }
 
-    @Secured(value = {"ROLE_ADMIN"})
-    @RequestMapping("/admin/login")
-    public String admin() {
-        return "userView";
-    }
-
-    @Secured(value = {"ROLE_USER"})
-    @RequestMapping("/user/login")
-    public String user() {
-        return "login";
-    }
-
-    private void doAutoLogin(String username, String password, HttpServletRequest request) {
-
-        try {
-            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
-            token.setDetails(new WebAuthenticationDetails(request));
-            Authentication authentication = this.authenticationProvider.authenticate(token);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-        } catch (Exception e) {
-            SecurityContextHolder.getContext().setAuthentication(null);
+        RedirectView redirect = new RedirectView("home");
+        try{
+            doAutoLogin(username, password, request);
+        }catch(WrongPasswordException e){
+            redirect.addStaticAttribute("error", "bledneHaslo");
+            return redirect;
+        } catch(NotFoundCustomer e){
+            redirect.addStaticAttribute("error", "blednyCustomer");
+            return redirect;
         }
+        return redirect;
+    }
+
+    private void doAutoLogin(String username, String password, HttpServletRequest request) throws WrongPasswordException, NotFoundCustomer{
+
+        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username, password);
+        token.setDetails(new WebAuthenticationDetails(request));
+        Authentication authentication = this.authenticationProvider.authenticate(token);
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
 
     }
 }

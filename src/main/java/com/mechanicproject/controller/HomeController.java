@@ -42,13 +42,14 @@ public class HomeController {
     @RequestMapping("/home")
     public ModelAndView welcome(Map<String, Object> model) {
 
-        List<String> collect = SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().map(a -> a.getAuthority()).collect(Collectors.toList());
+        List<String> collect = SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().map(a ->
+                a.getAuthority()).collect(Collectors.toList());
         model.put("message", this.message);
         String variable = "przykładowa zmienna";
         model.put("zmienna", variable);
         ModelAndView modelAndView = new ModelAndView("home");
-        if(collect.size()>0)
-        model.put("auth", collect.get(0));
+        if (collect.size() > 0)
+            model.put("auth", collect.get(0));
         return modelAndView;
     }
 
@@ -68,13 +69,13 @@ public class HomeController {
         return "home";
     }
 
-    @Secured(value={"ADMIN"})
+    @Secured(value = {"ROLE_ADMIN"})
     @RequestMapping("/admin/login")
     public String admin() {
-        return "login";
+        return "userView";
     }
 
-    @Secured(value={"ROLE_USER"})
+    @Secured(value = {"ROLE_USER"})
     @RequestMapping("/user/login")
     public String user() {
         return "login";

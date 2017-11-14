@@ -68,7 +68,21 @@
 
 
             <div sec:authorize="hasRole('ROLE_ADMIN')">
-                This content is only shown to administrators.
+
+                <div class="container" th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml"><br><br>
+                    <div class="row">
+                        <div class="col col-md-12">
+                            <nav class="nav nav-pills nav-fill">
+                                <a class="nav-item nav-link active" href="/home">Home</a>
+                                <a class="nav-item nav-link disabled" href="#">Lista klientów</a>
+                                <a class="nav-item nav-link disabled" href="/registration">Rejestracja</a>
+                                <a class="nav-item nav-link disabled" href="#">O aplikacji</a>
+                                <a class="nav-item nav-link " href="/logout">Wyloguj</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                This content is only shown to mechanics.
             </div>
 
 

@@ -59,9 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user").password("password").roles("USER")
                 .and()
                 .withUser("admin").password("password").roles("ADMIN");
-
         auth.userDetailsService(userDetailsService);
     }
+
+
     @Bean
     public SpringSecurityDialect springSecurityDialect(){
         return new SpringSecurityDialect();

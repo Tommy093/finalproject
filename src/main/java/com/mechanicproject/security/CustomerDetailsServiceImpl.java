@@ -23,5 +23,10 @@ public class CustomerDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String customer) throws UsernameNotFoundException {
         return customerRepository.findByUsername(customer);
     }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//        return userRepository.findByEmail(email);
+//    }
 }
 

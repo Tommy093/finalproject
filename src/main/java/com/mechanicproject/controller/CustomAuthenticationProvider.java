@@ -39,6 +39,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 		System.out.print("Succesful authentication!");
 		Customer customer = customerService.getByUsername(name);
+
 		Set<Role> roleSet = new HashSet<Role>();
 		List<SimpleGrantedAuthority> roles = roleSet.stream().map(p -> new SimpleGrantedAuthority(p.name())).collect(Collectors.toList());
 

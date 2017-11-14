@@ -62,13 +62,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.userDetailsService(userDetailsService);
     }
-
-        @Bean
-        public SpringSecurityDialect springSecurityDialect(){
-            return new SpringSecurityDialect();
-        }
+    @Bean
+    public SpringSecurityDialect springSecurityDialect(){
+        return new SpringSecurityDialect();
     }
-
+}
 
 
 

@@ -48,6 +48,8 @@ public class HomeController {
         String variable = "przykładowa zmienna";
         model.put("zmienna", variable);
         ModelAndView modelAndView = new ModelAndView("home");
+        if(collect.size()>0)
+        model.put("auth", collect.get(0));
         return modelAndView;
     }
 
@@ -56,11 +58,18 @@ public class HomeController {
                           @RequestParam(name = "password") String password,
                           HttpServletRequest request) {
         doAutoLogin(username, password, request);
-        return "login";
+        return "home";
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String welcome2(@RequestParam(name = "username") String username,
+                          @RequestParam(name = "password") String password,
+                          HttpServletRequest request) {
+        doAutoLogin(username, password, request);
+        return "home";
+    }
 
-    @Secured(value={"ROLE_ADMIN"})
+    @Secured(value={"ADMIN"})
     @RequestMapping("/admin/login")
     public String admin() {
         return "login";

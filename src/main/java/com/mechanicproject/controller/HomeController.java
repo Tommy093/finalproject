@@ -93,4 +93,10 @@ public class HomeController {
         }
 
     }
+
+    @RequestMapping("/logout")
+    private RedirectView doAutoLogout() {
+        SecurityContextHolder.getContext().setAuthentication(null);
+        return new RedirectView("home");
+    }
 }

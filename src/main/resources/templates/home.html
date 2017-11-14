@@ -2,49 +2,36 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <title>E-mechanik - strona główna</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css"
           href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <link rel="stylesheet" th:href="@{/css/main.css}"
           href="../../css/main.css"/>
-    <div class="col col-md-12">
-    <div class="jumbotron">
-        <h1 class="display-3">E-mechanik</h1>
-        <p class="lead">W prosty sposób umow wizytę u mechanika.</p>
-        <hr class="my-4">
-        <p>Ułatw sobie życie i już teraz sprawdź dostępne terminy.</p>
-        <p class="lead">
-            <!--<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>-->
-        </p>
-        </div>
-    </div>
-
-    <nav class="nav nav-pills nav-fill">
-        <a class="nav-item nav-link active" href="/home">Home</a>
-        <a class="nav-item nav-link " href="/addrepair">Napraw samochód</a>
-        <a class="nav-item nav-link " href="/registration">Rejestracja</a>
-        <a class="nav-item nav-link disabled" href="#">O aplikacji</a>
-    </nav>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <title>E-mechanik - strona główna</title>
 </head>
+
+
+
 <body>
+
+<div th:replace="fragments/header :: header"></div>
+
+
 <div class="container">
     <div class="row">
-        <!--<div class="col-sm">-->
-        <!--</div>-->
-        <div class="col-sm">
+        <div class="col col-md-12">
             <div class="text-center" style="padding:50px 0">
-                <div class="logo">login</div>
+                <div class="logo">Zaloguj się</div>
                 <!-- Main Form -->
                 <div class="login-form-1">
                     <form th:action="@{/login}" method="post">
 
                         <div class="form-group row">
-                            <label for="username" class="col-sm-2 col-form-label">Email</label>
+                            <label for="username" class="col-sm-2 col-form-label">Username</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="username" id="username" placeholder="Email"/>
                             </div>
@@ -57,176 +44,46 @@
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-lg btn-primary">Log in</button>
+                            <div class="col col-md-12">
+                                <button type="submit" class="btn btn-success btn-block">Log in</button>
                             </div>
                         </div>
                     </form>
-                    <div class="col-sm-10">
-                        <a href="registration"class="btn btn-lg btn-primary">Rejestracja</a>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <a href="registration" class="btn btn-primary btn-block">Rejestracja</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!--<div class="col-sm">-->
-            <!--</div>-->
         </div>
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <link href="styles.css" rel="stylesheet">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2 class="text-center">
-                    Kalendarz dostępności
-                </h2>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col col-md-12">
+            <div sec:authorize="isAnonymous()">
+                This content is only shown to non authenticaded users.
             </div>
-            <div id="no-more-tables">
-                <table style="width: 1100px; height: 330px;"
-                       class="col-sm-12 table-bordered table-striped table-condensed cf">
-                    <thead class="cf">
-                    <tr>
-                        <th></th>
-                        <th>Poniedziałek</th>
-                        <th>Wtorek</th>
-                        <th>Środa</th>
-                        <th>Czwartek</th>
-                        <th>Piątek</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">07:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">09:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">11:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">13:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">15:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: center;" data-title=" ">17:00</td>
-                        <td style="text-align: center;" data-title="Monday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Tuesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Wednesday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Thursday">Zostaw
-                            pojazd</td>
-                        <td style="text-align: center;" data-title="Friday">Zostaw
-                            pojazd</td>
-                    </tr>
-                    </tbody>
-                </table>
+
+
+            <div sec:authorize="isAuthenticated()">
+                This content is only shown to authenticated users.
+            </div>
+
+
+            <div sec:authorize="hasRole('ROLE_ADMIN')">
+                This content is only shown to administrators.
+            </div>
+
+
+            <div sec:authorize="hasRole('ROLE_USER')">
+                This content is only shown to users.
             </div>
         </div>
-    </div>
-
-
-    <thead>
-    <tr>
-        <th>Data naprawy</th>
-        <th>Id Samochodu</th>
-        <th>Id Klienta</th>
-    </tr>
-    </thead>
-    <tr th:each="currentRepair, stat : ${repairs}">
-        <td th:text="${currentRepair.getDate().toString()}"></td>
-        <td th:text="${currentRepair.getCarId}"></td>
-        <td th:text="${currentRepair.getCustomerId()}"></td>
-    </tr>
-
-
-    <p th:text="${zmienna}">Test</p>
-    <div class="container">
-        <div class="starter-template">
-            <h1>To kiedyś będzie strona główna </h1>
-            <h2>
-                <span th:text="'Wiadomość: ' + ${message}"></span>
-            </h2>
-        </div>
-    </div>
-    <!-- /.container -->
-    <script type="text/javascript"
-            src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </div>
-
-
-<div sec:authorize="isAnonymous()">
-    This content is only shown to non authenticaded users.
-</div>
-<div sec:authorize="isAuthenticated()">
-    This content is only shisAuthenticatedown to authenticated users.
-    Jestes zalogowany jako: <span sec:authentication="name"></span>
-</div>
-<div sec:authorize="hasRole('ROLE_ADMIN')">
-    This content is only shown to administrators.
-</div>
-<div sec:authorize="hasRole('ROLE_USER')">
-    This content is only shown to users.
-
-    <div class="col-2">
-        <!--user profile image start-->
-        <div th:replace="fragments/header :: header"/>
     </div>
 </div>
 

@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div sec:authorize="isAnonymous()">
-    This content is only shown to non authenticaded users.
-</div>
-<div sec:authorize="isAuthenticated()">
-    This content is only shown to authenticated users.
-</div>
-<div sec:authorize="hasRole('ROLE_ADMIN')">
-    This content is only shown to administrators.
-</div>
-<div sec:authorize="hasRole('ROLE_USER')">
-    This content is only shown to users.
-</div>
+        <html lang="pl"
+              xmlns="http://www.thymeleaf.org/extras/dialect"
+              xmlns:th="http://www.thymeleaf.org"
+              xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+              xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
-</body>
-</html>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Logowanie</title>
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="/style.css" >
+
+        </head>
+        <body>
+
+
+
+        <div th:if="${true }">
+            false
+        </div>
+
+
+
+        <script type="text/javascript" src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/webjars/jquery/3.1.1/dist/jquery.min.js"></script>
+
+        </body>
+        </html>

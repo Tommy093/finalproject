@@ -192,5 +192,12 @@
     <script type="text/javascript"
             src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </div>
+
+<div th:if="${auth} == 'ROLE_USER'">
+    JESTES USEREM
+</div>
+<div th:if="${auth} == 'ROLE_ADMIN'">
+    JESTES ADMINEM
+</div>
 </body>
 </html>
